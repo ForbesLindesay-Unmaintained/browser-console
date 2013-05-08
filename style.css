@@ -1,0 +1,31 @@
+.browser-console { list-style: none; margin: 0; padding: 0; }
+.browser-console li { margin: 5px 0; padding: 5px; border-top: 1px solid #EEEFEE; white-space: pre-wrap; padding-bottom: 0; }
+.browser-console li:last-child { border-bottom: 0;}
+.browser-console > li > div { margin-left: 20px; line-height: 20px; }
+.browser-console span.gutter { float: left; display: block; width: 5px; }
+
+.browser-console li div { position: relative; }
+
+/* log types */
+.browser-console span.gutter:before { display: inline-block; font-family: monospace; font-size: 13px; line-height: 20px; }
+.browser-console .echo span.gutter:before { content: '> '; color: #8595AD; /*#3583FC;*/ font-weight: bold; margin-left: 5px; }
+.browser-console .info span.gutter:before { content: 'i '; color: #0029FF; font-weight: bold; margin-left: 4px; }
+.browser-console .warn span.gutter:before { content: '! '; color: #E8971D; margin-right: -10px; margin-left: 2px; font-size: 20px; font-weight: bold; }
+.browser-console .error span.gutter:before { content: '× '; color: #E81D20; margin-right: -10px; margin-left: 2px; font-size: 20px; font-weight: bold; }
+.browser-console .error span { color: #E81D20;}
+.browser-console .response span.gutter:before { content: '« '; line-height: 16px; color: #BDC3CD; margin-right: -10px; font-size: 20px; }
+
+/* if response is directly next to echo, don't give it a line - only consoles get lines */
+.browser-console li.echo + li.response { border-width: 0; }
+
+/* hard line on new echo */
+.browser-console li.response + li.echo { border-width: 2px; border-color: #DFDFDF; }
+.browser-console li.error + li.echo { border-width: 2px; border-color: #DFDFDF; }
+.browser-console li.log + li.echo { border-width: 2px; border-color: #DFDFDF; }
+.browser-console li.info + li.echo { border-width: 2px; border-color: #DFDFDF; }
+
+.browser-console li.echo:first-child { border-width: 0;}
+.browser-console li:first-child { border-width: 0; padding-top: 0; }
+
+/* font size control */
+.browser-console li { min-height: 20px; font-size: 14px; font-family: SourceCodeProRegular, "Menlo", consolas, monospace; }
